@@ -13,6 +13,7 @@
 
 
 /* Transition Styles */
+/* For the navigation list target the hypertext links and set a background image ba_target.png that is centered and is no-repeat and set the background size too 0%. Have the color be rgb(253, 240, 133) and have the transition's color be 0.8 seconds and the background size be 0.3 seconds. */
 nav a {
     background: url(ba_target.png) center no-repeat;
     background-size: 0%;
@@ -20,9 +21,116 @@ nav a {
     transition: color 0.8s, background-size 0.3s;
 }
 
+/* For once the user is hovering over the links the background size will increase too 100% and have the text color be rgb(244, 130, 130). */
 nav a:hover {
     background-size: 100%;
     color: rgb(244, 130, 130);
 }
 
 /* Animation Styles */
+/* Key frames are a comma seperated list of animations applied to the object using the names of the @keyframes rule. The @keyframes is to have a name of moveRed to allow content for percentages to applied to allow the redball be moved at certain times. Likewise, for the moveBlue it will allow content to move the blueball at certain times from percentages. */
+@keyframes moveRed {
+    0% {
+        left: 0px;
+        filter: drop-shadow(-40px 20px 25px rgb(51, 51, 51));
+    }
+
+    49% {
+        transform: scaleX(1)
+    }
+
+    50% {
+        left: 380px;
+        filter: drop-shadow(0px 0px 0px rgb(51, 51, 51));
+        transform: scaleX(.4);
+    }
+
+    51% {
+        transform: scaleX(1.0);
+    }
+
+    100% {
+        left: 0px;
+        filter: drop-shadow(-40px 20px 25px rgb(51, 51, 51));
+    }
+}
+
+@keyframes moveBlue {
+    0% {
+        right: 0px;
+        filter: drop-shadow(40px 20px 25px rgb(51, 51, 51));
+    }
+
+    49% {
+        transform: scaleX(1)
+    }
+
+    50% {
+        right: 380px;
+        filter: drop-shadow(0px 0px 0px rgb(51, 51, 51));
+        transform: scaleX(.4);
+    }
+
+    51% {
+        transform: scaleX(1.0);
+    }
+
+    100% {
+        right: -700px;
+        filter: drop-shadow(120px 20px 0px);
+    }
+}
+
+@keyframes showText {
+    0% {
+        opacity: 0;
+    }
+
+    49% {
+        opacity: 0;
+    }
+
+    51% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes hideText {
+    0% {
+        opacity: 1;
+    }
+
+    49% {
+        opacity: 1;
+    }
+
+    51% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+img#redBall {
+    animation: moveRed 5s linear infinite;
+}
+
+img#blueBall {
+    animation: moveBlue 5s linear infinite;
+}
+
+div#redSpeed1,
+div#blueSpeed1 {
+    animation: hideText 5s linear infinite;
+}
+
+div#redSpeed2,
+div#blueSpeed2 {
+    animation: showText 5s linear infinite;
+}
